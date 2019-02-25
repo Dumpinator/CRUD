@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+<div class="">
+    <div class="col 12">
+        <a href="/add" class="btn btn-success btn-lg">new message</a>
+    </div>
+</div>
+<br>
+
+<div class="=">
+    <div class="col 12">
+        <% if (items.length > 0) { %>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width:15%;">Name</th>
+                        <th style="width:50%;">Message</th>
+                        <th style="width:15%;">Date</th>
+                        <th colspan="2" style="width:20%;text-align:center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% items.forEach(function(item, index){ %>
+                        <tr>
+                            <td style="width:15%"> <%= item.name %> </td>
+                            <td style="width:50%"> <%= item.content %> </td>
+                            <td style="width:15%"> <%= fromNow(item.created_at) %> </td>
+                            <td colspan="2" style="width:20%;text-align:center">
+                                <a href="/edit/<%= item.id %>" class="btn btn-success">Edit</a>
+                                <a href="/delete/<%= item.id %>" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <p><strong>No messages in DB</strong></p>
+            <% } %>
+    </div>
+</div>
+
+<% include ../partials/footer %>
