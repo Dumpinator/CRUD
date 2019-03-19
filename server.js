@@ -95,7 +95,3 @@ app.get('/delete/:id', (req, res) => {
         }
     })
 })
-
-server.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
-  })
