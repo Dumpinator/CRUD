@@ -88,20 +88,18 @@ app.get('/edit/:id', (req, res) => {
 app.get('/delete/:id', (req, res) => {
     connection.query('DELETE FROM messages WHERE id = ?', [ req.params.id ], (err, results, fields) => {
         if (err) throw err.message
-
         if (results.affectedRows){
             res.redirect(baseURL)
         }
     })
 })
-
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
-app.listen(port);
 /*
+let port = process.env.PORT
+    if (port == null || port == "") {
+        port = 8000;
+    }
+app.listen(port);
+*/
 const server = app.listen(3000, () => {
     console.log("Server started on port 3000")
 })
-*/
