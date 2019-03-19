@@ -24,7 +24,7 @@ const connection = mysql.createConnection({
 })
 
 const siteTitle = "tuto node"
-const baseURL = "http://localhost:3000/"
+const baseURL = "/"
 
 app.get('/', (req, res) => {
    
