@@ -19,11 +19,10 @@ app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'))
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'tuto',
-    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
+    host: 'process.env.HOST',
+    user: 'process.env.USER',
+    password: 'process.env.PASSWORD',
+    database: 'process.env.DATABASE'
 })
 
 const siteTitle = "tuto node"
